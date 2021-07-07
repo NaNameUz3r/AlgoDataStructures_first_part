@@ -40,6 +40,8 @@ class LinkedListTests(unittest.TestCase):
 
     def test_delete_one_element(self):
         test_list = LinkedList()
+
+        test_list.delete(100)
         node_1 = Node(1)
         node_2 = Node(2)
         node_3 = Node(3)
