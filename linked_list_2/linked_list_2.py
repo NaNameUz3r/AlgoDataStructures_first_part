@@ -83,6 +83,7 @@ class LinkedList2:
                     return
                 elif node.value == val and node == self.head:
                     self.head = node.next
+                    self.head.prev = None
                     if self.head == self.tail:
                         self.tail.prev = None
                     return

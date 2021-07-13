@@ -40,8 +40,8 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(test_list.tail, node_2)
         self.assertEqual(test_list.head, test_list.tail)
         self.assertEqual(test_list.head.next, None)
+        self.assertEqual(test_list.head.prev, None)
         self.assertEqual(test_list.tail.prev, None)
-
 
         test_list.delete(2)
         self.assertEqual(test_list.head, None)
@@ -55,6 +55,21 @@ class LinkedListTests(unittest.TestCase):
 
         self.assertEqual(node_1.next, node_3)
         self.assertEqual(node_3.prev, node_1)
+
+        test_list_2 = LinkedList2()
+        node_555 = Node(555)
+        node_666 = Node(666)
+        node_777 = Node(777)
+        node_888 = Node(888)
+
+        test_list_2.add_in_tail(node_555)
+        test_list_2.add_in_tail(node_666)
+        test_list_2.add_in_tail(node_777)
+        test_list_2.add_in_tail(node_888)
+        test_list_2.delete(555)
+        self.assertEqual(test_list_2.head, node_666)
+        self.assertEqual(test_list_2.head.prev, None)
+
 
     def test_delete_by_value(self):
         test_list = LinkedList2()
@@ -153,7 +168,6 @@ class LinkedListTests(unittest.TestCase):
         self.assertEqual(node_2.prev, node_1)
         self.assertEqual(node_2.next, node_3)
         self.assertEqual(node_3.prev, node_2)
-
 
     def test_add_head(self):
         test_list = LinkedList2()
