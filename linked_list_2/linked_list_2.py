@@ -49,6 +49,10 @@ class LinkedList2:
         if self.tail is None and self.head is None:
             return None
 
+        if self.head == self.tail:
+            self.head.next = None
+            self.tail.prev = None
+
         if all:
             while node is not None:
                 if node.next == self.tail and self.tail.value != val:
@@ -72,11 +76,15 @@ class LinkedList2:
 
         else:
             while True:
-                if node.value == val and node == self.tail:
+                if node.value == val and node == self.tail and (
+                    self.tail == self.head
+                ):
                     self.clean()
                     return
                 elif node.value == val and node == self.head:
                     self.head = node.next
+                    if self.head == self.tail:
+                        self.tail.prev = None
                     return
                 elif node.next.value == val and node.next == self.tail:
                     self.tail = node
