@@ -22,3 +22,12 @@ class StackTests(unittest.TestCase):
         self.assertEqual(stack.size(), 0)
         self.assertEqual(stack.pop(), None)
         self.assertEqual(stack.peek(), None)
+
+    def test_stack_pop_one_element(self):
+        stack = Stack()
+        stack.push(1)
+        print(stack.size())
+        self.assertEqual(stack.size(), 1)
+        x = stack.pop()
+        self.assertEqual(x, 1)
+        self.assertEqual(stack.size(), 0)

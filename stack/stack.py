@@ -9,7 +9,7 @@ class Stack:
         if self.size() < 1:
             return None
         else:
-            self.stack.pop(self.size() - 1)
+            return self.stack.pop(self.size() - 1)
 
     def push(self, value):
         self.stack.append(value)
