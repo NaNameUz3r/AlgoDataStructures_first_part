@@ -10,7 +10,3 @@ def is_balanced(parentheses_string):
             checking_stack.pop()
 
     return checking_stack.size() == 0
-
-
-# print(is_balanced("(())()(())"))
-print(is_balanced('()((())()))'))
