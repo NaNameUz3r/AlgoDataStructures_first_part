@@ -45,11 +45,11 @@ class LinkedList:
         self.head.next = self.tail
         self.tail.prev = self.head
 
-    def print_all_nodes(self):
-        node = self.head.get_next()
-        while node is not None:
-            print(node.value)
-            node = node.get_next()
+    # def print_all_nodes(self):
+    #     node = self.head.get_next()
+    #     while node is not None:
+    #         print(node.value)
+    #         node = node.get_next()
 
     def add_in_tail(self, new_node):
         if self.head.next is None:
