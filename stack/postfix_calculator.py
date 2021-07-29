@@ -10,14 +10,15 @@ def postfix_calculator(data_string):
 
     while first_stack.size() > 0:
         element = first_stack.pop()
-        if element == "+":
-            print(second_stack.stack)
-            addition = second_stack.pop() + second_stack.pop()
-            second_stack.push(addition)
-        elif element == "*":
-            multiple = second_stack.pop() * second_stack.pop()
-            second_stack.push(multiple)
+        if element.isdigit():
+            second_stack.push(int(element))
         elif element == "=":
             return second_stack.pop()
-        else:
-            second_stack.push(int(element))
+        elif second_stack.size() >= 2:
+            operation = element
+            first_digit = second_stack.pop()
+            second_digit = second_stack.pop()
+            # !!! NEVER USE eval ON SERVERS !!!
+            evaluation = eval(f'{first_digit} {operation} {second_digit}')
+            second_stack.push(evaluation)
+

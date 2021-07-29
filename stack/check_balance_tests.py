@@ -8,8 +8,10 @@ class CheckBalanceTests(unittest.TestCase):
         string_2 = '(()((())()))'   # True
         string_3 = '))(('           # False
         string_4 = '((())'          # False
+        string_5 = '(()))'          # False
 
         self.assertEqual(is_balanced(string_1), True)
         self.assertEqual(is_balanced(string_2), True)
         self.assertEqual(is_balanced(string_3), False)
         self.assertEqual(is_balanced(string_4), False)
+        self.assertEqual(is_balanced(string_5), False)
