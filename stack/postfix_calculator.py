@@ -1,9 +1,17 @@
 from stack_reversed import Stack
+import operator
 
 
 def postfix_calculator(data_string):
     first_stack = Stack()
     second_stack = Stack()
+
+    operations = {
+        '+': operator.add,
+        '-': operator.sub,
+        '*': operator.mul,
+        '/': operator.truediv
+    }
 
     for item in data_string.split()[::-1]:
         first_stack.push(item)
@@ -15,10 +23,7 @@ def postfix_calculator(data_string):
         elif element == "=":
             return second_stack.pop()
         elif second_stack.size() >= 2:
-            operation = element
             first_digit = second_stack.pop()
             second_digit = second_stack.pop()
-            # !!! NEVER USE eval ON SERVERS !!!
-            evaluation = eval(f'{first_digit} {operation} {second_digit}')
+            evaluation = operations[element](first_digit, second_digit)
             second_stack.push(evaluation)
-
