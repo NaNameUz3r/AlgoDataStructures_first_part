@@ -8,7 +8,7 @@ def is_palindrome(string_to_check):
 
     palindrome_flag = False
     for i in range(deque.size()):
-        if deque.removeFront() != string_to_check[i]:
+        if deque.removeFront() != deque.removeTail():
             return palindrome_flag
     else:
         palindrome_flag = True
