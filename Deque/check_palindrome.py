@@ -6,10 +6,8 @@ def is_palindrome(string_to_check):
     for item in string_to_check:
         deque.addFront(item)
 
-    palindrome_flag = False
-    for i in range(deque.size()):
+    while deque.size() > 1:
         if deque.removeFront() != deque.removeTail():
-            return palindrome_flag
-    else:
-        palindrome_flag = True
-    return palindrome_flag
+            return False
+    return True
+
