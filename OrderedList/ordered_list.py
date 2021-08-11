@@ -11,12 +11,6 @@ class OrderedList:
         self.tail = None
         self.__ascending = asc
 
-    def print_all_nodes(self):
-        node = self.head
-        while node is not None:
-            print(node.value)
-            node = node.next
-
     def compare(self, v1, v2):
         if v1.value < v2.value:
             return -1
