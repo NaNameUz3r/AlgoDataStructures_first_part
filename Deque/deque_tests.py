@@ -2,6 +2,7 @@ import unittest
 from deque import Deque
 from deque_linkedlist import Deque as Deque2
 
+
 class TestDeque(unittest.TestCase):
 
     def test_deque(self):
