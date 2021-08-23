@@ -31,6 +31,7 @@ class HashTable:
         index_to_put = self.seek_slot(value)
         if index_to_put is not None:
             self.slots[index_to_put] = value
+            return index_to_put
         else:
             return None
 
