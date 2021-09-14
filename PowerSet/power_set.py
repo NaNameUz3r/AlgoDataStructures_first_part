@@ -40,16 +40,13 @@ class PowerSet:
     def difference(self, set2):
         diff_set = PowerSet()
 
-        for item in self.set:
-            if not set2.get(item):
-                diff_set.put(item)
-        for item in set2.set:
-            if not self.get(item):
-                diff_set.put(item)
+        for i in self.set:
+            if set2.get(i) is False:
+                diff_set.put(i)
         return diff_set
 
     def issubset(self, set2):
         for item in set2.set:
-            if not self.get(item):
+            if self.get(item) is False:
                 return False
         return True

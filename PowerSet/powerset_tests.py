@@ -44,15 +44,18 @@ class PowerSetTests(unittest.TestCase):
 
     def test_diff(self):
         ps1 = PowerSet()
-        ps1.set = [1, 2, 3]
+        ps1.set = [1, 2, 3, 98, 150, 23]
 
         ps2 = PowerSet()
         ps2.set = [2, 3, 4]
 
         ps3 = PowerSet()
-        ps3.set = [2, 3, 4]
+        ps3.set = [4, 2, 3]
 
-        self.assertEqual(ps1.difference(ps2).set, [1, 4])
+        ps4 = PowerSet()
+        ps4.set = []
+
+        self.assertEqual(ps1.difference(ps2).set, [1, 98, 150, 23])
         self.assertEqual(ps2.difference(ps3).set, [])
 
     def test_subset(self):
