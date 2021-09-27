@@ -1,5 +1,5 @@
 import unittest
-from bloom_filter import BloomFilter
+from bloom_filter_bitarray import BloomFilter
 
 class TestBloomFilter(unittest.TestCase):
 
