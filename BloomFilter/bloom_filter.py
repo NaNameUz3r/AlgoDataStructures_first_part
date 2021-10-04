@@ -23,14 +23,14 @@ class BloomFilter:
         return hashed_index
 
     def add(self, str1):
-        hashed_indexes = [self.hash1(str1), self.hash2(str1)]
-        for index in hashed_indexes:
-            self.bit_map[index] = 1
+        hashed_indexes = [self.hash1, self.hash2]
+        for hash_function in hashed_indexes:
+            self.bit_map[hash_function(str1)] = 1
 
     def is_value(self, str1):
-        hashed_indexes = [self.hash1(str1), self.hash2(str1)]
+        hashed_indexes = [self.hash1, self.hash2]
         total_bits = 0
-        for index in hashed_indexes:
-            if self.bit_map[index] == 1:
+        for hash_function in hashed_indexes:
+            if self.bit_map[hash_function(str1)] == 1:
                 total_bits += 1
         return total_bits == len(hashed_indexes)
